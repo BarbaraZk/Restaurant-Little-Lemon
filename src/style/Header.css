@@ -1,0 +1,36 @@
+header{
+  display:grid;
+  grid-template-columns: 1fr  1fr;
+  background-color: #495E57;
+  align-items: center;
+  padding: 5vh;
+}
+header h1{
+  color:#F4CE14;
+  font-size: 44px;
+}
+header p{
+  color: #EDEFEE;
+  font-size: 22px;
+}
+
+.hero-image img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  object-fit: cover;
+  width: 350px;
+
+  border-radius: 15px;
+  margin-left: 15vh;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+
+}
+button{
+  padding: 15px;
+  border-radius: 15px;
+  font-size: 15px;
+  font-weight: bold;
+  border: none;
+}

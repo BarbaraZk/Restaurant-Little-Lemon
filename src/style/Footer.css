@@ -1,0 +1,88 @@
+.footer {
+  background-color: #333;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 2rem 3rem;
+  gap: 3rem;
+  font-family: Arial, sans-serif;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.logo {
+  width: 150px;
+  flex-shrink: 0; /* żeby logo się nie kurczyło */
+
+
+}
+
+/* Sekcje obok siebie, po prawej stronie logo */
+.footer-sections {
+  display: flex;
+  gap: 4rem;
+  flex-wrap: wrap;
+  flex: 1; /* zajmują pozostałe miejsce */
+}
+
+.navigation,
+.contact,
+.socialMedia {
+  flex: 1 1 180px;
+}
+
+h3 {
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #495E57;
+  padding-bottom: 0.5rem;
+}
+
+p {
+  margin: 0.4rem 0;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+p:hover {
+  color: #82b366;
+}
+
+.socialMedia .icons {
+  display: flex;
+  gap: 1rem;
+  font-size: 1.5rem;
+}
+
+.socialMedia a {
+  color: #fff;
+  transition: color 0.3s;
+}
+
+.socialMedia a:hover {
+  color: #82b366;
+}
+
+/* Responsywność */
+@media (max-width: 800px) {
+  .footer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-sections {
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+  }
+
+  .navigation,
+  .contact,
+  .socialMedia {
+    flex-basis: auto;
+    text-align: center;
+  }
+
+  .logo {
+    margin-bottom: 2rem;
+  }
+}
