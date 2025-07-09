@@ -1,25 +1,121 @@
-nav{
-  display: grid;
-  grid-template-columns: 1fr 4fr;
-  margin-bottom: 5vh;
-}
-nav img{
-  width: 20vw;
-  height: auto;
-  margin-right: 5vh;
+/* ==== Globalne resetowanie ==== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-ul {
-  display: grid;
-  grid-template-columns: repeat(6, auto);
-  gap: 30px;
+nav a {
+  text-decoration: none;
+}
+
+nav li {
   list-style: none;
 }
-li a {
-  text-decoration: none;
-  color: #333333;
+
+/* ==== Styl główny NAV === */
+nav {
+  z-index: 10001;
+}
+
+.navbar {
+  padding: 10px 13%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+}
+
+/* ==== Logo ==== */
+.logo img {
+  width: 160px;
+  height: auto;
+}
+
+/* ==== Linki ==== */
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav-links li a {
+  color: #000;
   font-size: 20px;
   font-weight: 500;
   text-transform: uppercase;
+  transition: 0.3s;
+}
 
+.nav-links li a:hover {
+  text-decoration: underline solid #495E57;
+}
+
+/* ==== Hamburger menu (mobile) ==== */
+.menu-icon {
+  display: none;
+  cursor: pointer;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  margin: 5px 0;
+}
+
+/* ==== Mobile menu widoczne po kliknięciu ==== */
+.nav-links.visible {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  width: 100%;
+  background-color: #495E57;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+  transition: all 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+
+/* ==== MEDIA QUERIES ==== */
+
+/* Mobile (max 768px) */
+@media screen and (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-links.visible {
+    display: flex;
+  }
+
+  .nav-links li a {
+    color: #fff;
+  }
+
+  .bar {
+    background: #333333;
+  }
+
+  .navbar {
+    padding: 10px 8%;
+  }
+}
+
+/* Desktop (min 769px) */
+@media screen and (min-width: 769px) {
+  .nav-links {
+    display: flex !important;
+  }
+
+  .menu-icon {
+    display: none;
+  }
 }

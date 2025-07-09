@@ -1,72 +1,61 @@
-import "../style/Main.css";
-import pic1 from "../pictures/greekSalad.jpg";
-import pic2 from "../pictures/lemonDessert.jpg";
-import pic3 from "../pictures/spagetti.jpg";
-import pic4 from "../pictures/chefs.jpg";
-import pic5 from "../pictures/restaurantChef.jpg";
-import Testimonial from "./Testimonial";
+import React, { useReducer } from "react";
+import { Route, Routes, useNavigate} from "react-router-dom";
+import Header from "./Header";
+import Booking from "./Booking";
 
+const Main =()=>{
 
-function Main(){
-  return(
-    <>
+  const seedRandom = function(seed){
+    var m = 2**35 -31;
+    var a = 185852;
+    var s = seed % m;
+    return function(){
+      return(s = s*a%m)/m;
+    }
+  }
+
+  const fetchAPI = function(date){
+    let result = [];
+    let random = seedRandom(date.getDate());
+    for (let i=17; i<=23; i++){
+      if(random() < 0.5){
+        result.push(i + ":00");
+      }
+      if(random() > 0.5){
+        result.push(i + ":30");
+      }
+    }
+    return result;
+
+  }
+
+  const submitAPI = function(formData){
+    return true;
+  }
+
+  const initialState = {availableTimes: fetchAPI(new Date())};
+  const[state, dispatch] = useReducer(updateTimes, initialState);
+
+  function updateTimes(state, date){
+    return {availableTimes: fetchAPI(new Date())}
+  }
+
+  const navigate = useNavigate();
+  function submitForm(formData){
+    if(submitAPI(formData)){
+      navigate("/confirmed")
+    }
+  }
+  return (
     <main>
+      <Routes>
+        <Route path="/" element={<Header/>}></Route>
+        <Route path="/booking" element={<Booking availableTimes={state} dispatch={dispatch} submitForm={submitForm}/>}></Route>
+      </Routes>
 
-      <section className="highlight">
-        <div className="highlight-header">
-        <h1>This week specials</h1>
-        <button>Online Menu</button>
-        </div>
-       
-
-        <div className="specials-container">
-           <div class="special">
-          <img src={pic1} alt="" />
-          <div className="order">
-      <h3 className="specialMenu">Greek salat</h3><p className="price">12$</p>
-          </div>
-          
-          <p className="description">The famous greek salad of crispy njwejfew fw</p>
-          <p className="delivery">Order a deliver</p> 
-        </div>
-          <div class="special">
-          <img src={pic2} alt="" />
-          <div className="order">
-      <h3 className="specialMenu">Greek salat</h3><p className="price">12$</p>
-          </div>
-          
-          <p className="description">The famous greek salad of crispy njwejfew fw</p>
-          <p className ="delivery">Order a deliver</p> 
-        </div>
-         <div class="special">
-          <img src={pic3} alt="" />
-          <div className="order">
-      <h3 className="specialMenu">Greek salat</h3><p className="price">12$</p>
-          </div>
-          
-          <p className="description">The famous greek salad of crispy njwejfew fw</p>
-          <p className ="delivery">Order a deliver</p> 
-        </div>
-          
-        </div>
-       
-
-      </section>
-    <Testimonial/>
-      <section className="about">
-        <div className="description">
-        <h1>Little Lemon Chicago</h1>
-        <p>Little Lemon is owned by two Italian brothers, Mario and Adrian, who moved to the United States to pursue their shared dream of owning a restaurant. To craft the menu, Mario relies on family recipes and his experience as a chef in Italy. Adrian does all the marketing for the restaurant and led the effort to expand the menu beyond classic Italian to incorporate additional cuisines from the Mediterranean region</p>
-        </div>
-        <div className="descriptionImage">
-        <img src={pic5} alt="" className="pic5"/>
-        <img src={pic4} alt=""className="pic4"/>
-        </div>
-       
-      </section>
     </main>
-    </>
   )
-}
+};
+
 
 export default Main;

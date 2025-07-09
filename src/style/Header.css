@@ -5,7 +5,7 @@ header{
   align-items: center;
   padding: 5vh;
 }
-header h1{
+header h2{
   color:#F4CE14;
   font-size: 44px;
 }
@@ -14,7 +14,13 @@ header p{
   font-size: 22px;
 }
 
-.hero-image img {
+.banner p{
+  font-size:20px;
+max-width: 520px;
+line-height: 1.5;
+margin-bottom: 30px;}
+
+.banner-img img {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,10 +33,15 @@ header p{
   margin-bottom: 5vh;
 
 }
-button{
-  padding: 15px;
-  border-radius: 15px;
-  font-size: 15px;
-  font-weight: bold;
+
+header button {
+  background-color: #F4CE14;
+  color: black;
+  padding: 14px 18px;
   border: none;
+  text-decoration: none;
+  border-radius: 12px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
 }
