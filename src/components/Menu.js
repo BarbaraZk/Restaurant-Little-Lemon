@@ -1,69 +1,37 @@
 import "../style/Menu.css";
-import pic1 from "../pictures/greekSalad.jpg";
-import pic2 from "../pictures/lemonDessert.jpg";
-import pic3 from "../pictures/greekSalad.jpg";
+
 import pic4 from "../pictures/chefs.jpg";
 import pic5 from "../pictures/restaurantChef.jpg";
 import Testimonial from "./Testimonial";
 
-
+import recipes from "../recipes";
 
 
 
 function Menu(){
-
-
-
   return(
     <>
-    <main className="main">
-  
-   
- 
- 
- 
- <section className="highlight">
-        <div className="highlight-header">
+    <main className="menu-container">
+
+        <div className="menu-header" id="specials">
         <h1>This week specials</h1>
-        <button>Online Menu</button>
+        <button>Order Menu</button>
         </div>
-       
+        <div className="cards">
+          {recipes.map(recipe=><div key={recipe.id} className="menu-items" >
+<img src={recipe.image} alt=""></img>
+<div className="menu-content">
+  <h3 className="heading">{recipe.title}</h3>
+  <p >{recipe.price}</p>
+  <p>{recipe.description}</p>
+  <button className="orderBtn">Ordern now</button>
+</div>
 
-        <div className="specials-container">
-           <div class="special">
-          <img src={pic1} alt="" />
-          <div className="order">
-      <h3 className="specialMenu">Greek salat</h3><p className="price">12$</p>
-          </div>
-          
-          <p className="description">The famous greek salad of crispy njwejfew fw</p>
-          <p className="delivery">Order a deliver</p> 
+          </div>)}
         </div>
-          <div class="special">
-          <img src={pic2} alt="" />
-          <div className="order">
-      <h3 className="specialMenu">Greek salat</h3><p className="price">12$</p>
-          </div>
-          
-          <p className="description">The famous greek salad of crispy njwejfew fw</p>
-          <p className ="delivery">Order a deliver</p> 
-        </div>
-         <div class="special">
-          <img src={pic3} alt="" />
-          <div className="order">
-      <h3 className="specialMenu">Greek salat</h3><p className="price">12$</p>
-          </div>
-          
-          <p className="description">The famous greek salad of crispy njwejfew fw</p>
-          <p className ="delivery">Order a deliver</p> 
-        </div>
-          
-        </div>
-       
-
-      </section>
-    <Testimonial/>
-      <section className="about">
+   
+   <Testimonial/>
+      <section className="about" id="about">
         <div className="description">
         <h1>Little Lemon Chicago</h1>
         <p>Little Lemon is owned by two Italian brothers, Mario and Adrian, who moved to the United States to pursue their shared dream of owning a restaurant. To craft the menu, Mario relies on family recipes and his experience as a chef in Italy. Adrian does all the marketing for the restaurant and led the effort to expand the menu beyond classic Italian to incorporate additional cuisines from the Mediterranean region</p>

@@ -1,69 +1,64 @@
 
-.highlight{
-font-size: 44px;
-padding: 5vh;
+.menu-container h2{
+  color: #000;
+
 }
 
-.highlight h1{
-font-size: 44px;
-}
-
-.highlight-header{
-display: flex;
-justify-content: space-between;
-align-items: center;
-}
-
-
-.specials-container{
-  display: grid;
-  grid-template-columns: repeat(3,minmax(350px,500px));
-  justify-content: center;
-  padding: 5vh;
-
-  
-}
-
-.special {
- 
-  border-radius: 8px;
-  text-align: center;
-  background-color:#495E57;
-  margin: 3vh;
-  
-}
-.special img{
-  justify-content: center;
+.menu-header{
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  object-fit: cover;
-  width:100%;
-  height: 15vh;
+  flex-wrap: wrap;
+  padding: 4rem 2rem;
+}
+.cards{
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem 1rem;
+}
+
+.menu-items{
+  /* height: 400px; */
+  width: 350px;
+  background: #495E57;
   border-radius: 8px;
 }
-.special h3{
-  font-weight: bold;
-  font-size: 22px;
+
+.menu-container img{
+  width: 100%;
+  height: 233px;
+  border-radius: 8px;
 }
-p.price{
-font-size: 22px;
-font-weight: bold;
-margin-left: 4vh;
-color: #495E57;
+
+.menu-content{
+  padding: 5px 15px;
 }
-p.delivery{
-  display: inline-block;
-  color:#495E57 ;
-  font-weight: bold;
+
+
+.menu-content .heading{
+  display: flex;
+  justify-content: space-between;
+}
+
+.orderBtn{
+  padding: 5px 12px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: 600;
+}
+button {
+  background-color: #F4CE14;
+  color: black;
+  padding: 14px 18px;
+  border: none;
+  text-decoration: none;
+  border-radius: 12px;
   font-size: 20px;
-  border-bottom: 1px solid #495E57;
-  margin-top: 5vh;
-}
-p.description{
-  font-size: 18px;
-}
-.special .order{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .testimonial {
@@ -109,7 +104,7 @@ p.description{
   font-size: 40px;
 }
 
-button{
+/* button{
   padding: 15px;
   border-radius: 15px;
   border: none;
@@ -117,7 +112,7 @@ button{
   font-weight: bold;
    background-color: #F4CE14;
    min-width: 10vh;
-}
+} */
 
 .about {
   display: grid;

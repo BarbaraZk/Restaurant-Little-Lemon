@@ -16,10 +16,27 @@
 
 
 }
+ul {
+  list-style: none;
+display: flex;
+
+  gap: 1rem;
+}
+
+ul li a {
+  color:white;
+  transition: 0.3s;
+  text-decoration: none;
+}
+ul li a:hover {
+  text-decoration: underline solid #495E57;
+}
+
 
 /* Sekcje obok siebie, po prawej stronie logo */
 .footer-sections {
   display: flex;
+ 
   gap: 4rem;
   flex-wrap: wrap;
   flex: 1; /* zajmują pozostałe miejsce */

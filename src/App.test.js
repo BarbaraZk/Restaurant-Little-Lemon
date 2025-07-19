@@ -1,8 +1,32 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render, screen } from "@testing-library/react";
+import BookingForm from "./components/BookingForm";
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+// Przykładowe mocki dla propsów
+const mockAvailableTimes = {
+  availableTimes: ["18:00", "19:00", "20:00"]
+};
+
+const mockDispatch = jest.fn();
+const mockSubmitForm = jest.fn();
+
+test("Renders the BookingForm with heading and submit button", () => {
+  render(
+    <BookingForm
+      availableTimes={mockAvailableTimes}
+      dispatch={mockDispatch}
+      SubmitForm={mockSubmitForm}
+    />
+  );
+
+  // Sprawdź obecność etykiety "Choose Date:"
+  const dateLabel = screen.getByLabelText("Choose Date:");
+  expect(dateLabel).toBeInTheDocument();
+
+  // Sprawdź obecność opcji "18:00"
+  const timeOption = screen.getByText("18:00");
+  expect(timeOption).toBeInTheDocument();
+
+  // Sprawdź obecność przycisku wysyłania formularza
+const submitButton = screen.getByDisplayValue(/make your reservation/i);
+expect(submitButton).toBeInTheDocument();
 });
